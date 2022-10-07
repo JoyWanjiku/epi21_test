@@ -219,6 +219,9 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
     <Compile Include="Business\IModifyLayout.cs" />
+    <Compile Include="Business\Initializers\SiteMetadataExtenderInitialization.cs" />
+    <Compile Include="Business\MetadataExtenders\SiteMetadataExtender.cs" />
+    <Compile Include="Business\UIDescriptors\ForceAllPropertiesViewUiDescriptor.cs" />
     <Compile Include="Controllers\NackademinStartPageController.cs" />
     <Compile Include="Controllers\PageControllerBase.cs" />
     <Compile Include="Global.asax.cs">

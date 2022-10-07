@@ -10,9 +10,9 @@ using System.Web;
 namespace epi21_test.Models.Pages
 {
     [ContentType(
-          GUID = "56DA62B2-4C5E-49AB-8977-A4A038A88595",
+          GUID = "9F8EAAE2-E6FC-4850-8337-0E5DE1E189F5",
           DisplayName = "A start page"
-          )]
+    )]
     public class NackademinStartPage : SitePageData
     {
         [Display(
@@ -20,7 +20,6 @@ namespace epi21_test.Models.Pages
             Order = 10
             )]
         [CultureSpecific]
-
         public virtual XhtmlString Header { get; set; }
     }
 }
