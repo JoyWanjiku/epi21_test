@@ -11,7 +11,7 @@ using System.Web;
 namespace epi21_test.Business.Initializers
 {
     [InitializableModule]
-    [ModuleDependency(typeof(EPiServer.Cms.Shell.InitializableModule))]
+    [ModuleDependency(typeof(EPiServer.Cms.Shell.InitializableModule))] //moving category property
     public class SiteMetadataExtenderInitialization : IInitializableModule
     {
         public void Initialize(InitializationEngine context)

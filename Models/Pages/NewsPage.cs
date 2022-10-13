@@ -9,27 +9,25 @@ using System.Web;
 
 namespace epi21_test.Models.Pages
 {
-    [ContentType(
-          GUID = "9F8EAAE2-E6FC-4850-8337-0E5DE1E189F5",
-          DisplayName = "A start page"
-    )]
-    public class NackademinStartPage : SitePageData
+    [ContentType (
+        GUID = "AB3B291B-2246-411B-949D-0405F93B3C89",
+        DisplayName = "Page: News",
+        Description = "this is a news page"
+        )]
+    public class NewsPage : SitePageData
     {
+        [Display(
+            GroupName = SystemTabNames.Content,
+            Order = 10
+        )]
+        [CultureSpecific]
+        public virtual string Heading { get; set; }
+
         [Display(
             GroupName = SystemTabNames.Content,
             Order = 20
             )]
         [CultureSpecific]
-        public virtual ContentArea ContentArea { get; set; } //adding a content area on epi where we can drag and drop pages or blocks
-
-        [Display(
-            GroupName = SystemTabNames.Content,
-            Order = 10
-            )]
-        [CultureSpecific]
-        public virtual XhtmlString Header { get; set; }
-
-        
-
+        public virtual XhtmlString Text { get; set; }
     }
 }

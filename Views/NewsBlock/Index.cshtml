@@ -1,0 +1,11 @@
+﻿@using epi21_test.Models.ViewModels
+
+@model NewsViewModel
+
+@foreach (var news in Model.News)
+{
+    <h2>@news.Heading</h2>
+    @Html.Raw(news.Text)}
+@*<h2>
+    }@item.Name
+</h2>*@
