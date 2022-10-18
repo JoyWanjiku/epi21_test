@@ -3,10 +3,7 @@ using EPiServer.Core;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.Shell.ObjectEditing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+
 
 namespace epi21_test.Business.Initializers
 {
@@ -23,7 +20,7 @@ namespace epi21_test.Business.Initializers
             }
         }
 
-        public void PreLoad(string[] parameters) { }
+        //public void PreLoad(string[] parameters) { }
 
         public void Uninitialize(InitializationEngine context)
         {

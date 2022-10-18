@@ -1,8 +1,7 @@
-﻿using EPiServer.DataAnnotations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using epi21_test.Business.UIDescriptors;
+using epi21_test.Models.Interfaces;
+using EPiServer.DataAnnotations;
+
 
 namespace epi21_test.Models.Pages
 {
@@ -11,7 +10,7 @@ namespace epi21_test.Models.Pages
         DisplayName = "Page: Article",
         Description = "This is an article page"
     )]
-    public class ArticlePage : SitePageData
+    public class ArticlePage : SitePageData, ISearchable, IUseArticleTreeIcon
     {
     }
 }

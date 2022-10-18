@@ -1,11 +1,10 @@
-﻿using EPiServer.Core;
+﻿using epi21_test.Business.UIDescriptors;
+using epi21_test.Models.Interfaces;
+using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace epi21_test.Models.Pages
 {
@@ -14,20 +13,27 @@ namespace epi21_test.Models.Pages
         DisplayName = "Page: News",
         Description = "this is a news page"
         )]
-    public class NewsPage : SitePageData
+    public class NewsPage : SitePageData, ISearchable, IUseArticleTreeIcon
     {
         [Display(
-            GroupName = SystemTabNames.Content,
-            Order = 10
-        )]
+           GroupName = SystemTabNames.Content,
+           Order = 40
+           )]
         [CultureSpecific]
-        public virtual string Heading { get; set; }
-
+        public virtual XhtmlString Text { get; set; }
         [Display(
             GroupName = SystemTabNames.Content,
             Order = 20
             )]
         [CultureSpecific]
-        public virtual XhtmlString Text { get; set; }
+        public virtual ContentArea ContentArea { get; set; } //adding a content area on epi where we can drag and drop pages or blocks
+
+        [Display(
+            GroupName = SystemTabNames.Content,
+            Order = 30
+            )]
+        [CultureSpecific]
+        public virtual XhtmlString Header { get; set; }
+        
     }
 }

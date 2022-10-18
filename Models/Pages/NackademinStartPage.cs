@@ -1,23 +1,23 @@
-﻿using EPiServer.Core;
+﻿using epi21_test.Models.Container;
+using epi21_test.Models.Interfaces;
+using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace epi21_test.Models.Pages
 {
     [ContentType(
           GUID = "9F8EAAE2-E6FC-4850-8337-0E5DE1E189F5",
-          DisplayName = "A start page"
+          DisplayName = "A start page",
+          Description = "This is a start page"
     )]
     [AvailableContentTypes(
         Availability.Specific,
-        Include = new[] { typeof(ArticlePage) }
+        Include = new[] { typeof(ArticlePage), typeof(NewsContainer),
+            typeof(FindPage), typeof(MovieSearchPage) }
     )]
-    public class NackademinStartPage : SitePageData
+    public class NackademinStartPage : SitePageData, ISearchable
     {
         [Display(
             GroupName = SystemTabNames.Content,
@@ -28,7 +28,7 @@ namespace epi21_test.Models.Pages
 
         [Display(
             GroupName = SystemTabNames.Content,
-            Order = 10
+            Order = 30
             )]
         [CultureSpecific]
         public virtual XhtmlString Header { get; set; }

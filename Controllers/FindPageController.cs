@@ -1,36 +1,34 @@
-﻿using epi21_test.Models.Pages;
-using epi21_test.Models.ViewModels;
+﻿using EPiServer.Core;
 using EPiServer.Find;
-using EPiServer.Find.Framework;
-using EPiServer.Find.UnifiedSearch;
-using System;
-using System.Collections.Generic;
+using EPiServer.Find.Cms;
+using EPiServer.ServiceLocation;
+using epi21_test.Extensions;
+using epi21_test.Models.Interfaces;
+using epi21_test.Models.Pages;
+using epi21_test.Models.ViewModels;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace epi21_test.Controllers
 {
     public class FindPageController : PageControllerBase<FindPage>
     {
-     public ActionResult Index(FindPage currentPage, string query)
+        public ActionResult Index(FindPage currentPage, string query)
         {
             var model = new ResultViewModel(currentPage);
-            var hitSpec = new HitSpecification
-            {
-                ExcerptLength = 255
-            };
-            if (string.IsNullOrEmpty(query))
-            {
-                return View(model);
-            }
-            else
-            {
-                var result = SearchClient.Instance.UnifiedSearchFor(query, EPiServer.Find.Language.English).UsingSynonyms().ApplyBestBets();
-                model.Results = result.Take(100).GetResult(hitSpec);
 
-                return View(model);
+            if (query.IsNotNullOrWhiteSpace())
+            {
+                var searchClient = ServiceLocator.Current.GetInstance<IClient>();
+                var result = searchClient.Search<PageData>().For(query).GetPagesResult().Where(x => x is ISearchable);
+
+                model = new ResultViewModel(currentPage)
+                {
+                    Result = result
+                };
             }
-        }   
+
+            return View(model);
+        }
     }
 }

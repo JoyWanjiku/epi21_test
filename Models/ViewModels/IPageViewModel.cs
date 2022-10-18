@@ -1,16 +1,15 @@
-﻿using EPiServer.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using epi21_test.Models.Pages;
+using EPiServer.Core;
+
 
 namespace epi21_test.Models.ViewModels
 {
    
-        public interface IPageViewModel<out T> where T : PageData
+        public interface IPageViewModel<out T> where T : SitePageData
         {
             T CurrentPage { get; }
             LayoutModel Layout { get; set; }
+            IContent Section { get; set; }
 
         }
     

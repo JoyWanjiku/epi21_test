@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     @Html.CanonicalLink()
+    <link href="~/Static/main.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
@@ -19,7 +20,6 @@
                 <li>@item.Name</li>
             }
         </ul>
-
         @RenderBody()
     </div>
 </body>

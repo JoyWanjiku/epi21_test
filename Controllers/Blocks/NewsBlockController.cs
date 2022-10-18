@@ -25,10 +25,11 @@ namespace epi21_test.Controllers.Blocks
             {
                 newsContainer = _contentLoader.Get<NewsContainer>(currentBlock.NewsContainer);
             }
-            var model = new NewsViewModel()
+            var model = new NewsViewModel() 
             {
                 News = _contentLoader.GetChildren<NewsPage>(newsContainer.ContentLink)
             };
+     
             return PartialView(model);
         }
     }

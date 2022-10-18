@@ -10,14 +10,13 @@
             } 
 @if (Model.Result != null)
             {
-                <ul>
-                    @foreach(var item in Model.Result)
-                {
-                    <li>
-                        <h2><a href="@item.Url">@item.Title</a></h2>
-                        <p>@Html.Raw(item.Excerpt</p>
-                    </li>
-                }
-                </ul>
+                <<ul>
+    @foreach (var item in Model.Result)
+    {
+        <li>
+            <a href="@Url.ContentUrl(item.ContentLink)">@item.Name</a>
+        </li>
+    }
+</ul>
             }
 
