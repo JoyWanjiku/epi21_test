@@ -1,0 +1,23 @@
+﻿@using epi21_test.Models.ViewModels
+@model MovieSearchViewModel
+
+<h1>Search for a movie</h1>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <input type="text" name="query" value="" />
+    <input type="submit" value="Search" />
+}
+
+@if (Model.Search != null)
+{
+    if (Model.Search.Search.Any())
+    {
+        <ul>
+            @foreach (var item in Model.Search.Search)
+            {
+                <li><a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)GetMovie?id=@item.ImdbID">@item.Title</a></li>
+            }
+        </ul>
+    }
+}

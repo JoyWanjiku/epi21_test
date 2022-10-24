@@ -33,7 +33,13 @@ namespace epi21_test.Models.Pages
         [CultureSpecific]
         public virtual XhtmlString Header { get; set; }
 
-        
+        [Display(
+            GroupName = SystemTabNames.Content,
+            Order = 40
+        )]
+        [UIHint("BackgroundColor")]
+        public virtual string BackgroundColor { get; set; }
+
 
     }
 }

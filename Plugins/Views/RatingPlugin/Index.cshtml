@@ -1,0 +1,31 @@
+﻿@using epi21_test.Plugins.Models
+@using System.Web.Mvc
+
+@inherits WebViewPage<RatingViewModel>
+
+@{
+    Layout = null;
+}
+
+<h1>MY RATING PLUGIN</h1>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td>Movie</td>
+                <td>Delete ratings</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Ratings)
+            {
+                <tr>
+                    <td>@item.Movie - @item.Value</td>
+                    <td><input type="button" value="Delete" /></td>
+                </tr>
+            }
+            <tr><td colspan="2"><input type="button" value="Delete All Ratings" /></td></tr>
+        </tbody>
+    </table>
+</div>

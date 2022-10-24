@@ -68,8 +68,8 @@
     <Reference Include="EPiServer, Version=11.15.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>packages\EPiServer.CMS.Core.11.15.1\lib\net461\EPiServer.dll</HintPath>
     </Reference>
-    <Reference Include="EPiServer.AddOns.Helpers, Version=0.3.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>packages\EPiServer.AddOns.Helpers.0.3.0.0\lib\EPiServer.AddOns.Helpers.dll</HintPath>
+    <Reference Include="EPiServer.AddOns.Helpers, Version=0.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>packages\EPiServer.AddOns.Helpers.0.4.0.0\lib\EPiServer.AddOns.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.ApplicationModules, Version=11.15.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>packages\EPiServer.Framework.11.15.1\lib\net461\EPiServer.ApplicationModules.dll</HintPath>
@@ -119,8 +119,14 @@
     <Reference Include="EPiServer.Find.UI, Version=13.4.9.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>packages\EPiServer.Find.Cms.13.4.9\lib\net461\EPiServer.Find.UI.dll</HintPath>
     </Reference>
-    <Reference Include="EPiServer.Forms.Core, Version=4.9.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
-      <HintPath>packages\EPiServer.Forms.Core.4.9.0\lib\EPiServer.Forms.Core.dll</HintPath>
+    <Reference Include="EPiServer.Forms, Version=4.29.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>packages\EPiServer.Forms.4.29.3\lib\EPiServer.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Forms.Core, Version=4.29.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>packages\EPiServer.Forms.Core.4.29.3\lib\EPiServer.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Forms.UI, Version=4.29.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>packages\EPiServer.Forms.UI.4.29.3\lib\EPiServer.Forms.UI.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Framework, Version=11.15.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>packages\EPiServer.Framework.11.15.1\lib\net461\EPiServer.Framework.dll</HintPath>
@@ -277,17 +283,28 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Business\Initializers\DependecyResolverInitialization.cs" />
     <Compile Include="Business\Initializers\FilterConfig.cs" />
     <Compile Include="Business\ActionFilters\PageContextActionFilter.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\PageViewContextFactory.cs" />
     <Compile Include="Business\Initializers\SiteMetadataExtenderInitialization.cs" />
     <Compile Include="Business\MetadataExtenders\SiteMetadataExtender.cs" />
+    <Compile Include="Business\Personalization\LoggedIn\LoggedInCriterion.cs" />
+    <Compile Include="Business\Personalization\LoggedIn\LoggedInCriterionSettings.cs" />
+    <Compile Include="Business\ScheduledJobs\TestJob.cs" />
+    <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\ArticleTreeIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ForceAllPropertiesViewUiDescriptor.cs" />
     <Compile Include="Content\EpiserverDefaultContentIcons.cs" />
     <Compile Include="Controllers\FindPageController.cs" />
     <Compile Include="Controllers\FindSearchPageController.cs" />
+    <Compile Include="Models\Interfaces\MovieService.cs" />
+    <Compile Include="Models\Movies\Ratings.cs" />
+    <Compile Include="Models\Properties\BackgroundColorDescriptor.cs" />
+    <Compile Include="Models\Properties\BackgroundColorSelectionFactory.cs" />
+    <Compile Include="Models\ViewModels\MovieSearchViewModel.cs" />
+    <Compile Include="Models\Interfaces\IMovieService.cs" />
     <Compile Include="Controllers\MovieSearchPageController.cs" />
     <Compile Include="Controllers\NackademinStartPageController.cs" />
     <Compile Include="Controllers\Blocks\NewsBlockController.cs" />
@@ -303,6 +320,8 @@
     <Compile Include="Models\Container\IUseContainerIcon.cs" />
     <Compile Include="Models\Container\NewsContainer.cs" />
     <Compile Include="Models\Interfaces\ISearchable.cs" />
+    <Compile Include="Models\Movies\Movie.cs" />
+    <Compile Include="Models\Movies\MovieSearch.cs" />
     <Compile Include="Models\Pages\ArticlePage.cs" />
     <Compile Include="Models\Pages\FindPage.cs" />
     <Compile Include="Models\Pages\MovieSearchPage.cs" />
@@ -317,18 +336,20 @@
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
     <Compile Include="Models\ViewModels\ResultViewModel.cs" />
     <Compile Include="Models\ViewModels\StartPageViewModel.cs" />
+    <Compile Include="Plugins\Controllers\RatingPluginController.cs" />
+    <Compile Include="Plugins\Models\RatingViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Media\" />
-    <Folder Include="Models\Properties\" />
+    <Folder Include="Plugins\Static\js\" />
     <Folder Include="Static\" />
-    <Folder Include="Views\MovieSearchPage\" />
     <Folder Include="Views\PageControllerBase\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />
     <Content Include="license.txt" />
+    <Content Include="Plugins\Static\css\rating.css" />
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -339,6 +360,11 @@
     <Content Include="modules\_protected\CMS\CMS.zip" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\web.config" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\EPiServer.Cms.TinyMce.zip" />
+    <Content Include="modules\_protected\EPiServer.Forms.UI\module.config" />
+    <Content Include="modules\_protected\EPiServer.Forms.UI\EPiServer.Forms.UI.zip" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
+    <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
+    <Content Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -348,6 +374,9 @@
     <Content Include="Views\FindPage\index.cshtml" />
     <Content Include="Views\NewsPage\Index.cshtml" />
     <Content Include="Views\Header.cshtml" />
+    <Content Include="Views\MovieSearchPage\Index.cshtml" />
+    <Content Include="Views\MovieSearchPage\GetMovie.cshtml" />
+    <Content Include="Plugins\Views\RatingPlugin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
