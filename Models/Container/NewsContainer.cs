@@ -1,4 +1,5 @@
-﻿using epi21_test.Models.Pages;
+﻿using epi21_test.Business.UIDescriptors;
+using epi21_test.Models.Pages;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 
@@ -14,7 +15,8 @@ namespace epi21_test.Models.Container
         Availability.Specific,
         Include = new[] { typeof(NewsPage)}
         )]
-    public class NewsContainer : SitePageData
+    public class NewsContainer : SitePageData, IUseArticleTreeIcon
+
     {
 
     }

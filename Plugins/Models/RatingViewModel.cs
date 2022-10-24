@@ -12,7 +12,7 @@ namespace epi21_test.Plugins.Models
         public List<Rating> CreateRatings()
         {
             var ratings = new List<Rating>();
-
+            //will not delete since it is hardcoded 
             var rating1 = new Rating()
             {
                 Movie = "Inception",

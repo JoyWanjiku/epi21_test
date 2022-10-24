@@ -23,7 +23,7 @@ namespace epi21_test.Plugins.Controllers
             var model = new RatingViewModel();
             model.Ratings = model.CreateRatings();
 
-            return View("~/Plugins/Rating/Views/Index.cshtml", model);
+            return View("~/Plugins/Views/RatingPlugin/Index.cshtml", model);
         }
     }
 }

@@ -283,6 +283,7 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Business\Initializers\CategoryInitialization.cs" />
     <Compile Include="Business\Initializers\DependecyResolverInitialization.cs" />
     <Compile Include="Business\Initializers\FilterConfig.cs" />
     <Compile Include="Business\ActionFilters\PageContextActionFilter.cs" />
