@@ -288,6 +288,7 @@
     <Compile Include="Business\Initializers\FilterConfig.cs" />
     <Compile Include="Business\ActionFilters\PageContextActionFilter.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
+    <Compile Include="Business\MakingMenu\ContentExtensions.cs" />
     <Compile Include="Business\PageViewContextFactory.cs" />
     <Compile Include="Business\Initializers\SiteMetadataExtenderInitialization.cs" />
     <Compile Include="Business\MetadataExtenders\SiteMetadataExtender.cs" />
@@ -300,6 +301,7 @@
     <Compile Include="Content\EpiserverDefaultContentIcons.cs" />
     <Compile Include="Controllers\FindPageController.cs" />
     <Compile Include="Controllers\FindSearchPageController.cs" />
+    <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Models\Interfaces\MovieService.cs" />
     <Compile Include="Models\Movies\Ratings.cs" />
     <Compile Include="Models\Properties\BackgroundColorDescriptor.cs" />

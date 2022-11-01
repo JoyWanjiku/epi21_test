@@ -1,13 +1,33 @@
 ﻿@using epi21_test.Models.ViewModels
+@using epi21_test.Helpers
+@using EPiServer.Web
+@using EPiServer.Web.Mvc.Html
 
 @model StartPageViewModel
-
+@helper MenuItemTemplate(HtmlHelpers.MenuItem item)
+{
+    <li>
+        @Html.PageLink(item.Page)
+    </li>
+}
+<nav>
+    <ul>
+        @Html.MenuList(
+       SiteDefinition.Current.StartPage, MenuItemTemplate
+       )
+    </ul>
+</nav>
 <h1>@Html.PropertyFor(x => x.CurrentPage.Header)</h1>
 
 <h2>NEWS</h2>
 @Html.PropertyFor(x => x.CurrentPage.ContentArea)
 
-BackgroundColor: @Html.PropertyFor(x=>x.CurrentPage.BackgroundColor)
+BackgroundColor: @Html.PropertyFor(x => x.CurrentPage.BackgroundColor)
+
+
+
+
+
 
 
 

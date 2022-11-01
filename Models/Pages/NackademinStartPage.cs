@@ -10,7 +10,8 @@ namespace epi21_test.Models.Pages
     [ContentType(
           GUID = "9F8EAAE2-E6FC-4850-8337-0E5DE1E189F5",
           DisplayName = "A start page",
-          Description = "This is a start page"
+          Description = "This is a start page",
+        GroupName = Global.GroupNames.Common
     )]
     [AvailableContentTypes(
         Availability.Specific,

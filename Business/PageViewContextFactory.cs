@@ -1,14 +1,11 @@
-﻿using EPiServer;
+﻿using epi21_test.Models.Pages;
+using epi21_test.Models.ViewModels;
+using EPiServer;
 using EPiServer.Core;
 using EPiServer.Web;
 using log4net;
-using epi21_test.Models.Pages;
-using epi21_test.Models.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Web;
 using System.Web.Routing;
 
 namespace epi21_test.Business.Initializers

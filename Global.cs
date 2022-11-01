@@ -14,6 +14,8 @@ namespace epi21_test
         {
             [Display(Name = "Specialized", Order = 10)]
             public const string Specialized = "Specialized";
+            [Display(Name = "Common", Order = 20)]
+            public const string Common = "Common";
         }
     }
 }

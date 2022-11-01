@@ -10,7 +10,7 @@ namespace epi21_test.Models.Pages
         DisplayName = "Page: Article",
         Description = "This is an article page"
     )]
-    public class ArticlePage : SitePageData, ISearchable, IUseArticleTreeIcon
+    public class ArticlePage : SitePageData, /*ISearchable*/IUseArticleTreeIcon
     {
     }
 }
